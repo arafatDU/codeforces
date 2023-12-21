@@ -24,29 +24,9 @@ int main() {
         int n, k;
         cin >> n >> k;
 
-        vector<int> order;
-
-        // Start with the first problem
-        order.push_back(1);
-
-        // Set up variables for increasing and decreasing difficulty levels
-        int inc = 2, dec = n;
-
-        // Iterate to create the order based on desired excitements
-        for (int i = 1; i < n; ++i) {
-            if (k > 0) {
-                order.push_back((i % 2 == 0) ? dec-- : inc++);
-                k--;
-            } else {
-                order.push_back((i % 2 == 0) ? inc++ : dec--);
-            }
-        }
-
-        // Print the order
-        for (int i = 0; i < n; ++i) {
-            cout << order[i] << " ";
-        }
-        cout << endl;
+        for(int i=1; i<=k; i++) cout<<i<<" ";
+        for(int i=n; i>k; i--) cout<<i<<" ";
+        cout<<endl;
     }
 
     return 0;

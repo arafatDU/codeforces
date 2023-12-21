@@ -24,7 +24,7 @@ int main() {
         int n, k;
         cin >> n >> k;
 
-        vector<int> a(n), b(n);
+        int a[n], b[n];
         for (int i = 0; i < n; ++i) {
             cin >> a[i];
         }
@@ -32,24 +32,18 @@ int main() {
             cin >> b[i];
         }
 
-        long long totalExperience = 0;
-        int completedQuests = 0;
+        // Logic= always calculate pre_sum = 0 to i-th term
+        // 1st time quest for 0 to i-th and rest of times (k - (i+1)) subsequence quest with the max of b[0] to b[i]
+        // then ans = pre_sum + (k-(i+1)) time max of b[0] to b[i]
+        // Do this thing for min(n, k) and everytime real ans will be the maximum ans.
 
-        for (int i = 0; i < n; ++i) {
-            if (completedQuests >= k) {
-                break;
-            }
-
-            int times = min(k - completedQuests, 1);  // Complete each quest at most 1 time
-            totalExperience += static_cast<long long>(times) * a[i];  // Experience for the first completion
-
-            times = min(k - completedQuests, i);  // Complete each subsequent quest at most i times
-            totalExperience += static_cast<long long>(times) * b[i];  // Experience for subsequent completions
-
-            completedQuests += times;
+        int mx = 0, pre_sum = 0, ans = 0;
+        for(int i=0; i<min(n,k); i++){
+            pre_sum += a[i];
+            mx = max(mx, b[i]);
+            ans = max(ans, pre_sum + (k-(i+1))*mx);
         }
-
-        cout << totalExperience << endl;
+        cout<<ans<<endl;
     }
 
     return 0;
