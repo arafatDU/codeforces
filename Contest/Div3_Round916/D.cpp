@@ -31,39 +31,29 @@ int main() {
         int n;
         cin >> n;
         
-        int a[n], b[n], c[n];
-        for(int i = 0; i < n; i++) {
-            cin >> a[i];
-        }
-        for(int i = 0; i < n; i++) {
-            cin >> b[i]; 
-        }
-        for(int i = 0; i < n; i++) {
-            cin >> c[i];
-        }
+        pii a[n], b[n], c[n];
+
+        for(int i = 0; i < n; i++){ cin>> a[i].ff; a[i].ss = i;}
+        for(int i = 0; i < n; i++){ cin>> b[i].ff; b[i].ss = i;}
+        for(int i = 0; i < n; i++){ cin>> c[i].ff; c[i].ss = i;}
         
-        int x, y, z;
-        int maxSum = 0;
-        
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < n; j++) {
-                if(i == j) continue;
-                
-                for(int k = 0; k < n; k++) {
-                    if(i == k || j == k) continue;
-                    
-                    int sum = a[i] + b[j] + c[k];
-                    if(sum > maxSum) {
-                        maxSum = sum;
-                        x = i;
-                        y = j; 
-                        z = k;
+        sort(a, a+n);
+        sort(b, b+n);
+        sort(c, c+n);
+
+        int ans = 0;
+        for(int i= n-1; i>=n-3; i--){
+            for(int j = n-1; j>=n-3; j--){
+                if(a[i].ss != b[j].ss){
+                    for(int k = n-1; k>=n-3; k--){
+                        if(c[k].ss != b[j].ss && c[k].ss != a[i].ss){
+                            ans = max(ans, a[i].ff + b[j].ff + c[k].ff);
+                        }
                     }
                 }
             }
         }
-        
-        cout << maxSum << "\n";
+        cout<<ans<<endl;
     }
     
     return 0;
