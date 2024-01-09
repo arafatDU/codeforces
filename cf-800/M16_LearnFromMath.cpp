@@ -23,15 +23,19 @@ int main()
           freopen("input.txt", "r", stdin);
           freopen("output.txt", "w", stdout);
     #endif
-    int n, a, b;
-    cin >> n;
-    a = 4;
-    b = n - 4;
-    while(isPrime(a) || isPrime(b)){
-        a++;
-        b--;
-    }
-    cout << a <<" "<< b << endl;
+    // int n, a, b;
+    // cin >> n;
+    // a = 4;
+    // b = n - 4;
+    // while(isPrime(a) || isPrime(b)){
+    //     a++;
+    //     b--;
+    // }
+    // cout << a <<" "<< b << endl;
+
+    int n;
+    cin>>n;
+    cout<<8+n%2<<" "<<(n-8-n%2);
 
     return 0;
 }

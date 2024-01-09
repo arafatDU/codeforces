@@ -16,18 +16,15 @@ int main()
           freopen("input.txt", "r", stdin);
           freopen("output.txt", "w", stdout);
     #endif
-    int n, ans=0;
-    cin>>n;
-    int arr[n];
-    for(int i=0; i<n; i++) cin>>arr[i];
-    sort(arr, arr+n);
-    for(int i=0; i<n; i++) ans += arr[n-1]-arr[i];
-    
-    cout <<ans<< endl;
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        if(s[0]+s[1]+s[2] == s[3]+s[4]+s[5]) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
 
-
-    // another logic
-    // (n * max_element) - total sum
+    }
 
     return 0;
 }
