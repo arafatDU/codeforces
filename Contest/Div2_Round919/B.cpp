@@ -8,37 +8,39 @@ using namespace std;
 #define rep(i,a,b) for(int i=a;i<b;i++)
 #define ff first
 #define ss second
-
+#define ll long long
 
 int main()
 {
-    #ifdef ONLINE_JUDGE
+    /*#ifdef ONLINE_JUDGE
           freopen("input.txt", "r", stdin);
           freopen("output.txt", "w", stdout);
-    #endif
+    #endif*/
     int t;
     cin>>t;
     while(t--){
-        long long n, k, x, sum=0; 
+        ll n, x, k, sum, ans=INT_MIN;
         cin>>n>>k>>x;
-        long long arr[n];
-        for(int i=0; i<n; i++){
-            cin>>arr[i];
-            sum += arr[i];
+        vi a(n), pSum(n+1);
+        for(int i=0; i<n; i++) cin>>a[i];
+        sort(a.begin(), a.end(), greater<int>());
+        for(int i=1; i<=n; i++) pSum[i]=pSum[i-1]+a[i-1];
+        sum = pSum[n];
+        
+        //for(int i=0; i<n; i++) cout<<a[i]<<" ";
+        //cout<<endl;
+        //for(int i=1; i<=n; i++) cout<<pSum[i]<<" ";
+        //cout<<endl<<sum<<endl;
+        
+        for(int i=0; i<=k; i++){
+            
+            //cout<<sum<<"   2*"<<(pSum[min(n,x+i)]-pSum[i])<<endl;
+            ans = max(ans, sum-2*(pSum[min(n,x+i)]-pSum[i]));
+            sum -= a[i];
         }
-        sort(arr, arr+n);
-        long long sumA=0;
-        vi alice(k);
-        for(int i=n-1; i>=n-k; i--){
-            cout<<arr[i]<<" ";
-            alice.push_back(-sumA);
-            sumA += arr[i];
-        }
-        alice.push_back(-sumA);
-        cout<<endl;
-        for(auto a: alice) cout<<a<<" ";
-
+        cout<<ans<<endl;
     }
-
+    
     return 0;
 }
+
