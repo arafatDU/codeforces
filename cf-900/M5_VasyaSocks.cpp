@@ -10,33 +10,22 @@ using namespace std;
 #define ss second
 #define ll long long
 
-
-/*
-    LOGIC
-    6 6 4
-    * * * * * * # # #
-    * * * * * * # # #
-    * * * * * * # # #
-    * * * * * * # # #
-    * * * * * * # # #
-    * * * * * * # # #
-    # # # # # # # # #
-    # # # # # # # # #
-    # # # # # # # # #
-
-    (6-3)/4  *  (6-3)/4
-
-*/
-
 int main()
 {
     #ifdef ONLINE_JUDGE
           freopen("input.txt", "r", stdin);
           freopen("output.txt", "w", stdout);
     #endif
-    ll n, m, a;
-    cin>>n>>m>>a;
-    cout<<(n+a-1)/a*((m+a-1LL)/a)<<endl;
+    int n, m, ans=0;
+    cin>>n>>m;
 
+    // cout<<(n*m-1)/(m-1);
+
+    for(int i=1; i<=n; i++){
+        ans++;
+        if(i%m == 0) n++;
+    }
+    cout << ans << endl;
+    
     return 0;
 }
