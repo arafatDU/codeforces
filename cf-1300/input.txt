@@ -1,2 +1,7 @@
-5
-2 4 7 8 10
+6
+first
+first
+second
+second
+third
+third
