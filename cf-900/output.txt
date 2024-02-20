@@ -1,2 +1,5 @@
-5  4  4  1  1  1  1  1  1  1  1  1  
-3
+abcabca
+aaaaaa
+aaaaaa
+ababa
+abababababa
