@@ -1,0 +1,29 @@
+# Ignore executable files
+*.exe
+*.out
+
+# Ignore Visual Studio Code settings folder
+.vscode/
+
+# Ignore build directories
+build/
+bin/
+obj/
+
+# Ignore temporary files
+*.tmp
+*.log
+
+# Ignore compiled object files
+*.o
+*.obj
+
+# Ignore C++ cache files
+*.gch
+*.pch
+
+# Ignore other common files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
