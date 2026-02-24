@@ -27,3 +27,7 @@ obj/
 *.swo
 .DS_Store
 Thumbs.db
+
+input.txt
+output.txt
+a.out
